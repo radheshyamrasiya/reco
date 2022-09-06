@@ -44,9 +44,29 @@ body {
     height: 90%;
 }
 
-@keyframes scrollend {
-    from {width: 90%;border-radius: 1000px 1000px 0px 0px;}
-    to {width: 100%;border-radius: 1000px}
+@keyframes ynfadeout {
+    from {opacity:100%;}
+    to {opacity:0%;}
+  }
+
+  @keyframes ynfadein {
+    from {opacity:0%;}
+    to {opacity:100%;}
+  }
+
+#yngroup {
+    opacity: 100%
+}
+
+@keyframes scrolldown {
+    from {width: 90%;border-radius: 1000px 1000px 100px 100px;}
+    to {width: 100%;border-radius: 100px 100px 1000px 1000px;}
+  }
+
+  @keyframes scrollup {
+    from {width: 100%;border-radius: 100px 100px 1000px 1000px;}
+    to {width: 90%;border-radius: 1000px 1000px 100px 100px;}
+   
   }
 
 .hello{
@@ -92,7 +112,17 @@ body {
     text-align: center;
     margin-top:80px;
     line-height: 65px;
+    opacity: 100%;
 }
+@keyframes qnumfadeout {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+  }
+  @keyframes qnumfadein {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+  }
+
 .title2 {
     font-weight: 800;
     font-size: 60px;
@@ -107,8 +137,20 @@ body {
     font-weight: bold;
     letter-spacing: -1.5px;
     line-height: 35px;
+    width:80%;
+    margin: auto;
     margin-top: 4px;
+    opacity: 100%;
 }
+
+@keyframes qtextfadeout {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+  }
+  @keyframes qtextfadein {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+  }
 
 
 #mroad {
@@ -117,7 +159,7 @@ body {
     margin: auto;
     margin-top: 40px;
     width: 90%;
-
+    opacity: 100%;
 }
 
 

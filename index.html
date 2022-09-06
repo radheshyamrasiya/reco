@@ -24,7 +24,7 @@
                 
                 <img class="swipeuparrow" src="arrow.svg" alt="">
                 <img id="leaf" src="leaves2.jpg" alt="">
-                <div class = "swipeup"> <a id="bc" href="q1.html">swipe up</a>  </div>
+                <div class = "swipeup"> swipe up </div>
             </div>
         </div>
         <div class="row">
@@ -34,11 +34,12 @@
         </div>
         <div class="row" id="q1" style="display:none;">
             <div class="twelve column red hello">
-                <div class="titleques red">1.</div>
-                <div class="subtitleques red">does your trash contain <br> any sharp object?.</div>
+                <div class="titleques red" id="qnum">1.</div>
+                <div class="subtitleques red" id="qtext">does your trash contain any sharp objects?</div>
                 <img id="mroad" src="road.png" alt="">
-                <div class = "yes">yes</div>
-                <div class = "no">no</div>
+                <div id="yngroup">
+                <div class = "yes" onclick="y()">yes</div>
+                <div class = "no" onclick="n()">no</div></div>
             </div>
         </div>
 
