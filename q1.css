@@ -36,11 +36,12 @@ body {
 
 
 #mroad {
-    border-radius: 1000px;
+    border-radius: 1000px 1000px 0px 0px;
     display: block;
     margin: auto;
     margin-top: 40px;
     width: 90%;
+
 }
 
 .hello{
