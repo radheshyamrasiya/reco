@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Only Links</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
+ 
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="tile.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script >
+      
+      function homePage(){
+          window.open("index.html", "_self");
+          console.log("switching to home page");
+      }
+
+      function gotoCreateTile() {
+        window.open("createtile.html", "_self");
+          console.log("switching to create tile page");
+      }
+      let file = {};
+      function chooseFile(e){
+        console.log("choosefileworking")
+              file = e.target.files[0];
+            }
+      
+          </script>
+
+</head>
+<body>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="gohomeback" id="homenotloggedin">
+    <button class="gohome" onclick="homePage()">&#8592 GO BACK</button>
+    </div>
+    <div class="topmargin"></div>
+    <div class="twelve columns " >
+
+    <!-- login up form --------------------------->
+    <div class="loginform" id="loginform" style="display: none;">
+        <div class="title">Let's Login.</div>
+        <div class="subtitle">Whats you special password? </div>
+
+        <div class="input-container ic1">
+          <input id="emailLogIn" class="input" type="email" placeholder=" " />
+          <div class="cut"></div>
+          <label for="email" class="placeholder">email</label>
+        </div>
+
+        <div class="input-container ic2">
+          <input id="passwordLogIn" class="input" type="password" placeholder=" " />
+          <div class="cut"></div>
+          <label for="password" class="placeholder">password</label>
+        </div>
+
+        <button type="text" class="submit" id="loginSubmit">submit</button>
+        <div class="subtitle2">NEW HERE?
+          <button type="text" class="subtitle2btn" id="switchToSignUp" >SIGNUP!</button>
+        </div>
+        <div id="errormessageLogin" class = "errormessage">&#128519</div>
+      </div>
+
+
+      <!-- sign up form --------------------------->
+      <div class="signupform" id="signupform" style="display: none;">
+        <div class="title">Let's SignUp.</div>
+        <div class="subtitle">Hop on the ship sir!</div>
+
+        <div class="input-container ic1">
+          <input id="emailSignUp" class="input" type="email" placeholder=" " />
+          <div class="cut"></div>
+          <label for="email" class="placeholder">email</label>
+        </div>
+
+        <div class="input-container ic2">
+          <input id="passwordSignUp" class="input" type="password" placeholder=" " />
+          <div class="cut"></div>
+          <label for="password" class="placeholder">password</label>
+        </div>
+        
+
+        <button type="text" class="submit" id="signupSubmit">NEXT</button>
+
+        <div class="subtitle2">BEEN HERE?
+          <button type="text" class="subtitle2btn" id="switchToLogIn" >LOGIN!</button>
+        </div>
+        <div id="errormessageSignup" class="errormessage">&#128519</div>
+
+      </div>
+
+       <!-- post sign up form --------------------------->
+       <div class="signupform" id="postsignupform" style="display: none;">
+        <div class="title">A Bit More.</div>
+        <div class="subtitle">What should we call you?</div>
+
+        <div class="input-container ic1">
+          <input id="usernamePostSignUp" class="input" type="text" placeholder=" " />
+          <div class="cut"></div>
+          <label for="usernamePostSignUp" class="placeholder">username</label>
+        </div>
+        
+
+        <button type="text" class="submit" id="postSignUpSubmit">submit</button>
+
+      </div>
+
+      <!-- post login --------------------------->
+      
+      </div>
+
+      <div class="twelve columns ">
+      <div class="four columns ">
+        <div class="logoutform centertext" id="logoutform" style="display: block;">
+          <div class="title">Hello.</div>
+          <div class="subtitle">Welcome back, <div id="username" style="display:inline-block">---username---</div></div>
+          <div class="subtitle" >Your mail is, <div id="usermail" style="display:inline-block;">---mail---</div> </div>
+
+          <div class="subtitlereward">Reward Points</div>
+          <div class="rewardpoint" id="points">000</div>
+  
+          <button type="text" class="submit" id="profileMoreBtn">MORE</button>
+      </div>
+
+      <div id="profilemore" class="logoutform" style="display: none;"  style="display: none;">
+        <button type="text" class="submit" id="updateprofilebtn">UPDATE PROFILE</button>
+        <!-- <button type="text" class="submit" onclick="gotoCreateTile()">CREATE TILE</button> -->
+        <button type="text" class="submit" id="logoutSubmit">LOGOUT</button>
+        <button type="text" class="submit" id="backtoProfileBtn">BACK</button>
+
+      </div>
+
+      <div class="logoutform centertext" id="updateprofile" style="display: none;">
+        <div class="title">Update Things.</div>
+
+        <div class="subtitle" >username: <div id="username2"  style="display:inline-block;" >ddhereusername</div> </div>
+        <button class = "usernamechangebtn" id="changeUsernameBtn">change</button>
+          <button type="text" class="submit" id="backToMoreBtn">BACK</button>
+        </div>
+        
+        <div class="logoutform" id="changeusernameform" style="display: none;">
+          <div class="title">Enter New Username.</div>
+          <div class="input-container ic1">
+            <input id="newusername" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="email" class="placeholder">username</label>
+          </div>
+          <button type="text" class="submit" id="submitUsernameChange">SUBMIT</button>
+          <button type="text" class="submit" id="dontChangeUsernameBtn">BACK</button>
+      </div>
+
+      <div class="logoutform" id="changephotoform" style="display: none;">
+        <div class="title">Upload New Photo.</div>
+        <input type="file" onchange="chooseFile(event)" id="fileUploader">
+          <button type="text" class="submit" id="submitPhotoChange">SUBMIT</button>
+          <button type="text" class="submit" id="dontChangePhotoBtn">BACK</button>
+      </div>
+      
+      
+      
+
+
+    </div>
+    
+    </div>
+   
+
+<!-- End Document––––––––––––––––––––––––––––––––––––––––––––––––––-->
+
+
+<script src="linkScript.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+import { getDatabase,get, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { getStorage, uploadBytes} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB-suuqQtCDMHdB3v-f5clr3YWBOGVG598",
+  authDomain: "hci-reco.firebaseapp.com",
+  databaseURL: "https://hci-reco-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "hci-reco",
+  storageBucket: "hci-reco.appspot.com",
+  messagingSenderId: "874411123579",
+  appId: "1:874411123579:web:2b03801a1e99ca56c693de",
+  measurementId: "G-XB0CR1CH8Y"
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db= getDatabase(app);
+const auth = getAuth();
+
+var loginBtn = document.getElementById('loginSubmit');
+var signupBtn = document.getElementById('signupSubmit');
+var logoutBtn = document.getElementById('logoutSubmit');
+var postsignupBtn = document.getElementById('postSignUpSubmit');
+var switchToSignUpBtn = document.getElementById("switchToSignUp");
+var switchToLogInBtn = document.getElementById("switchToLogIn");
+var switchToLogInBtn = document.getElementById("switchToLogIn");
+var moreBtn = document.getElementById('profileMoreBtn');
+var backtoProfileBtn = document.getElementById('backtoProfileBtn');
+var updateProfileBtn = document.getElementById('updateprofilebtn');
+var backToMoreBtn = document.getElementById('backToMoreBtn');
+var changeUsernameBtn = document.getElementById('changeUsernameBtn');
+var changePhotoBtn = document.getElementById('changePhotoBtn');
+var dontChangeUsernameBtn = document.getElementById('dontChangeUsernameBtn');
+var dontChangePhotoBtn = document.getElementById('dontChangePhotoBtn');
+var submitUsernameChange = document.getElementById("submitUsernameChange");
+var submitPhotoChange = document.getElementById("submitPhotoChange");
+
+var currentUser;
+var currentUserUsername;
+var currentUserId; 
+
+var loginform = document.getElementById("loginform");
+var signupform = document.getElementById("signupform");
+var logoutform = document.getElementById("logoutform");
+var profilemore = document.getElementById("profilemore");
+var updateprofile = document.getElementById("updateprofile");
+var changeusernameform = document.getElementById("changeusernameform");
+var changephotoform = document.getElementById("changephotoform");
+
+
+window.onload = pageLoad;
+function pageLoad(){
+  
+  onAuthStateChanged(auth, (user) => {
+    
+    if (user) {  
+
+      const dbRef = ref(getDatabase());
+      var tempusernamesearch = "users/" + user.uid
+      console.log(tempusernamesearch)
+      get(child(dbRef, tempusernamesearch)).then((snapshot) => {
+      if (snapshot.exists()) {
+        currentUserUsername = snapshot.val().username;
+              console.log(snapshot.val().username);
+          }
+      loginform.style.display = "none";
+      signupform.style.display = "none";
+      logoutform.style.display = "block";
+      updateLogout();
+        });
+      }
+        else {
+      loginform.style.display = "block";
+      signupform.style.display = "none";
+      logoutform.style.display = "none";
+    }
+  });
+}
+
+
+
+function switchToSignUp(){
+  noerror();
+  loginform.style.display = "none";
+  signupform.style.display = "block";
+}
+function switchToLogIn(){
+  noerror();
+  loginform.style.display = "block";
+  signupform.style.display = "none";
+}
+
+
+function login(){
+    var email = document.getElementById("emailLogIn");
+    var password = document.getElementById("passwordLogIn");
+
+      signInWithEmailAndPassword(auth, email.value, password.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+      loginform.style.display = "none";
+      signupform.style.display = "none";
+      logoutform.style.display = "block";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error.code)
+      console.log("-----------------")
+      console.log(error.message)
+      var errorholder = document.getElementById("errormessageLogin")
+      if (error.code=="auth/wrong-password"){
+        errorholder.innerHTML= "Wrong Password &#129300"
+      }
+      if (error.code=="auth/user-not-found"){
+        errorholder.innerHTML= "User Not Found &#128565"
+      }
+    });
+
+  }
+function signup(){
+    var email = document.getElementById("emailSignUp").value;
+    var password = document.getElementById("passwordSignUp").value;
+
+    createUserWithEmailAndPassword(auth, email,password).then(cred => {
+      console.log(cred.user);
+      set(ref(db, 'users/' + cred.user.uid), {
+    uid: cred.user.uid,
+    email: cred.user.email
+      });
+      loginform.style.display = "none";
+    signupform.style.display = "none";
+    postsignupform.style.display = "block";
+    logoutform.style.display = "none";
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error.code)
+      console.log("-----------------")
+      console.log(error.message)
+      var errorholder = document.getElementById("errormessageSignup")
+      if (error.code=="auth/email-already-in-use"){
+        errorholder.innerHTML= "User Already Exists ☝️"
+      }
+    });
+  }
+
+  function noerror(){
+    var errorholder = document.getElementById("errormessageSignup")
+    errorholder.innerHTML= "&#128519"
+    var errorholder = document.getElementById("errormessageLogin")
+    errorholder.innerHTML= "&#128519"
+    var email = document.getElementById("emailSignUp");
+    var password = document.getElementById("passwordSignUp");
+    email.value = "";
+    password.value = "";
+    var email = document.getElementById("emailLogIn");
+    var password = document.getElementById("passwordLogIn");
+    email.value = "";
+    password.value = "";
+  }
+
+  function fillSignUpForm(){
+    var username = document.getElementById("usernamePostSignUp");
+
+    update(ref(db, 'users/' + currentUserId), {
+    username: username.value
+      });
+      currentUserUsername = username.value;
+      loginform.style.display = "none";
+    signupform.style.display = "none";
+    postsignupform.style.display = "none";
+    logoutform.style.display = "block";
+    updateLogout();
+  }
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {      //logged in
+      currentUser = auth.currentUser;
+      currentUserId = user.uid;
+      document.getElementById("favsection").style.display= "block";
+      updateLogout();
+      
+    } else {  //logged out
+      currentUser = "nouserloggedin";
+      currentUserId = "0x00000";
+      document.getElementById("favsection").style.display= "none";
+    }
+  });
+  
+  function updateLogout(){
+     var email = currentUser.email; 
+     var emailPlaceHolder = document.getElementById("usermail");
+     var usernamePlaceHolder = document.getElementById("username");
+     var usernamePlaceHolder2 = document.getElementById("username2");
+     emailPlaceHolder.innerHTML = email;
+     usernamePlaceHolder.innerHTML = currentUserUsername; 
+     usernamePlaceHolder2.innerHTML = currentUserUsername; 
+  }
+  function updateNewUsername(){
+    var username = document.getElementById("newusername");
+    update(ref(db, 'users/' + currentUserId), {
+    username: username.value
+      });
+      currentUserUsername = username.value;
+      logoutform.style.display = "block";
+      changeusernameform.style.display = "none";
+      updateLogout();
+  }
+
+  function logout(){
+    signOut(auth).then(() => {
+      console.log("Logged Out")
+    // Sign-out successful.
+    }).catch((error) => {
+      console.log(error);
+    });
+    loginform.style.display = "block";
+    signupform.style.display = "none";
+    logoutform.style.display = "none";
+    profilemore.style.display = "none";
+
+}
+
+
+
+function showMore() {
+  logoutform.style.display = "none";
+  profilemore.style.display = "block";
+}
+function dontShowMore() {
+  logoutform.style.display = "block";
+  profilemore.style.display = "none";
+}
+
+function updateProfile() {
+  profilemore.style.display = "none";
+  updateprofile.style.display = "block";
+  updateLogout();
+}
+function dontUpdateProfile() {
+  profilemore.style.display = "block";
+  updateprofile.style.display = "none";
+}
+
+function updateUsername() {
+  profilemore.style.display = "none";
+  changeusernameform.style.display = "block";
+}
+function dontUpdateUsername() {
+  profilemore.style.display = "block";
+  changeusernameform.style.display = "none";
+}
+
+function updatePhoto() {
+  updateprofile.style.display = "none";
+  changephotoform.style.display = "block";
+}
+function dontUpdatePhoto() {
+  updateprofile.style.display = "block";
+  changephotoform.style.display = "none";
+}
+
+
+loginBtn.addEventListener("click",login);
+signupBtn.addEventListener("click",signup);
+logoutBtn.addEventListener("click",logout);
+postsignupBtn.addEventListener("click",fillSignUpForm);
+
+switchToSignUpBtn.addEventListener("click",switchToSignUp);
+switchToLogInBtn.addEventListener("click",switchToLogIn);
+
+moreBtn.addEventListener("click",showMore);
+backtoProfileBtn.addEventListener("click",dontShowMore);
+updateProfileBtn.addEventListener("click",updateUsername);
+backToMoreBtn.addEventListener("click",dontUpdateProfile);
+dontChangeUsernameBtn.addEventListener("click",dontUpdateUsername);
+
+submitUsernameChange.addEventListener("click",updateNewUsername)
+
+</script>
+
+<script>
+  function createcard(){
+      
+      if (cardcount%3==1){
+
+        if (cardcount!=1){
+          $('#cardspacer').clone().appendTo('#cardholder');
+          $('#cardtemplate').clone().appendTo('#cardholder');
+        }
+        else {
+          $('#cardtemplate').clone().appendTo('#cardholder');
+        }
+      
+    }
+    if (cardcount%3==2){
+      $('#cardspacer').clone().appendTo('#cardholder');
+      $('#cardtemplate').clone().appendTo('#cardholder');
+    }
+    if (cardcount%3==0){
+      $('#cardtemplate').clone().appendTo('#cardholder');
+    }
+    cardcount++;
+    console.log(cardcount)
+    }
+</script>
+
+
+</body>
+</html>
