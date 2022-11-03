@@ -1,6 +1,7 @@
 body {
     font-family: Inter;
     background-color: #EDEAE7;
+    overflow: hidden;
 }
 
 .stop-scrolling {
@@ -30,6 +31,29 @@ body {
 }
 .subtitle {
     font-size: 20px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+.rewardbox {
+    color: #EDEAE7;
+    background-color: #2D7048;
+    border: 2px solid #2D7048;
+    border-radius: 40px;
+    width: 80%;
+    padding: 20px 20px;
+    position: fixed;
+    left: 40px;
+    bottom: 20px;
+    z-index: 600;
+}
+.rewardtitle {
+    font-weight: 800;
+    font-size: 25px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.rewardsubtitle {
+    font-size: 18px;
     text-align: center;
     letter-spacing: -1px;
 }
@@ -122,7 +146,15 @@ body {
     from {opacity: 0%;}
     to {opacity: 100%;}
   }
+@keyframes rewardanimin {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
 
+@keyframes rewardanimout {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}
 .title2 {
     font-weight: 800;
     font-size: 60px;

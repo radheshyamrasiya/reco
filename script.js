@@ -49,6 +49,7 @@ function ynfadeout(){
     yngroup.style.opacity = 0;
 }
 
+
 mroad=document.getElementById(mroad);
 function y(){
     qfadeout();
@@ -69,6 +70,19 @@ function y(){
         mroad.src = "blue.jpg";
         qtext.innerHTML = "throw the trash in <br> blue dustbin";}
     qfadein();
+    rewardpopup();
+    setTimeout("rewardout()", 1500);
+
+   
+}
+function rewardpopup(){
+    let rewardbox = document.getElementById("rewardpopup");  
+    rewardbox.style.display = "block";
+}
+function rewardout(){
+    let rewardbox = document.getElementById("rewardpopup");  
+    rewardbox.style.animation = "rewardanimout 1s 1";
+    rewardbox.style.display = "none";
 }
 
 function qfadeout(){
@@ -76,6 +90,8 @@ function qfadeout(){
     qtext.style.animation = "qnumfadeout 1s 1";
    
 }
+
+
 
 function qfadein(){
     qnum.style.animation = "qnumfadein 1s 1";
@@ -101,3 +117,4 @@ function n(){
     
   
 }
+
