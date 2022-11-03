@@ -71,7 +71,7 @@ function y(){
         qtext.innerHTML = "throw the trash in <br> blue dustbin";}
     qfadein();
     rewardpopup();
-    setTimeout("rewardout()", 1500);
+    setTimeout("rewardout()", 3000);
 
    
 }
@@ -81,8 +81,7 @@ function rewardpopup(){
 }
 function rewardout(){
     let rewardbox = document.getElementById("rewardpopup");  
-    rewardbox.style.animation = "rewardanimout 1s 1";
-    rewardbox.style.display = "none";
+    rewardbox.style.animation = "rewardanimout 1.5s 1";
 }
 
 function qfadeout(){
