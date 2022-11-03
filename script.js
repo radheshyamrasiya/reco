@@ -81,7 +81,13 @@ function rewardpopup(){
 }
 function rewardout(){
     let rewardbox = document.getElementById("rewardpopup");  
-    rewardbox.style.animation = "rewardanimout 1.5s 1";
+    rewardbox.style.animation = "rewardanimout 1.5s 1";   
+    setTimeout("hidereward()", 1500);
+}
+
+function hidereward() {
+   let rewardbox = document.getElementById("rewardpopup");  
+    rewardbox.style.display = "none";
 }
 
 function qfadeout(){
