@@ -1,0 +1,70 @@
+.tile {
+    border-radius: 30px;
+    background-color: #141414;
+    margin-bottom: 50px;
+}
+
+.tile .userphoto {
+width: 48px;
+border-radius: 999px;
+margin: 15px;
+margin-right: 18px;
+float: left;
+}
+
+.tile .userphoto2 {
+    width: 48px;
+    border-radius: 999px;
+    margin: 15px;
+    margin-right: 18px;
+    float: right;
+    }
+
+.tile .tileheader {
+background-color: #242424;
+border-radius: 30px;
+height: 75px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+
+}
+.tileheader h6 {
+letter-spacing: 0.5px;
+font-weight: 500;
+display: inline;
+vertical-align: top;  
+font-size: 17px;
+}
+.tileheader p {
+letter-spacing: 0.5px;
+font-weight: 400;
+text-decoration: none;
+display: inline;
+vertical-align: top; 
+}
+.tileheader .blank{
+height: 12px;
+}
+
+.tilecontent{
+display:block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;
+}
+.tilecontent h2 {
+font-family: inherit;
+font-size: 30px;
+font-weight: 500;
+}
+.tilecontent li {
+font-size: 20px;
+}
+.tilecontent li::before {
+content: "";
+width: 5px;
+display: inline-block;
+}
+.tilecontent .contentendspacer{
+height: 8px;
+}

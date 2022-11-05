@@ -71,7 +71,9 @@ function y(){
         qtext.innerHTML = "throw the trash in <br> blue dustbin";}
     qfadein();
     rewardpopup();
-    setTimeout("rewardout()", 3000);
+    setTimeout("rewardout()", 4500);
+    setTimeout("rewardhide()", 6510);
+   
 
    
 }
@@ -79,15 +81,14 @@ function rewardpopup(){
     let rewardbox = document.getElementById("rewardpopup");  
     rewardbox.style.display = "block";
 }
+
+function rewardhide(){
+    let rewardbox = document.getElementById("rewardpopup");  
+    rewardbox.style.display = "none";
+}
 function rewardout(){
     let rewardbox = document.getElementById("rewardpopup");  
-    rewardbox.style.animation = "rewardanimout 1.5s 1";   
-    setTimeout("hidereward()", 1500);
-}
-
-function hidereward() {
-   let rewardbox = document.getElementById("rewardpopup");  
-    rewardbox.style.display = "none";
+    rewardbox.style.animation = "rewardanimout 2s 1";
 }
 
 function qfadeout(){
@@ -119,7 +120,6 @@ function n(){
         qtext.innerHTML = "does your trash contain any plastic?"
         qnum.innerHTML = "3."
         qfadein();}
-    
   
 }
 

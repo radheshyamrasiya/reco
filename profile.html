@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Only Links</title>
+  <title>reco. | Recycling Optimised</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -19,17 +19,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
- 
+  <link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+/>
   <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="skeleton.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="tile.css">
+   
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="chromeicon.png">
 
   <!-- JS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -64,6 +68,12 @@
     <div class="topmargin"></div>
     <div class="twelve columns " >
 
+      <div class="twelve column hello">
+      
+        <div class="titlereco">reco.</div>
+        <div class="subtitle ">sustainability in your hands.</div>
+      
+      </div>
     <!-- login up form --------------------------->
     <div class="loginform" id="loginform" style="display: none;">
         <div class="title">Let's Login.</div>
@@ -138,7 +148,7 @@
 
       <div class="twelve columns ">
       <div class="four columns ">
-        <div class="logoutform centertext" id="logoutform" style="display: block;">
+        <div class="logoutform centertext" id="logoutform" style="display: none;">
           <div class="title">Hello.</div>
           <div class="subtitle">Welcome back, <div id="username" style="display:inline-block">---username---</div></div>
           <div class="subtitle" >Your mail is, <div id="usermail" style="display:inline-block;">---mail---</div> </div>
@@ -195,7 +205,6 @@
 <!-- End Document––––––––––––––––––––––––––––––––––––––––––––––––––-->
 
 
-<script src="linkScript.js"></script>
 <script type="module">
   // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
@@ -245,6 +254,7 @@ var submitPhotoChange = document.getElementById("submitPhotoChange");
 var currentUser;
 var currentUserUsername;
 var currentUserId; 
+var currentReward;
 
 var loginform = document.getElementById("loginform");
 var signupform = document.getElementById("signupform");
@@ -268,6 +278,7 @@ function pageLoad(){
       get(child(dbRef, tempusernamesearch)).then((snapshot) => {
       if (snapshot.exists()) {
         currentUserUsername = snapshot.val().username;
+        currentReward = snapshot.val().reward;
               console.log(snapshot.val().username);
           }
       loginform.style.display = "none";
@@ -381,20 +392,24 @@ function signup(){
     signupform.style.display = "none";
     postsignupform.style.display = "none";
     logoutform.style.display = "block";
+    nice();
     updateLogout();
+  }
+  function nice(){
+    update(ref(db, 'users/' + currentUserId), {
+    reward: 0
+      });
   }
 
   onAuthStateChanged(auth, (user) => {
     if (user) {      //logged in
       currentUser = auth.currentUser;
       currentUserId = user.uid;
-      document.getElementById("favsection").style.display= "block";
       updateLogout();
       
     } else {  //logged out
       currentUser = "nouserloggedin";
       currentUserId = "0x00000";
-      document.getElementById("favsection").style.display= "none";
     }
   });
   
@@ -403,9 +418,12 @@ function signup(){
      var emailPlaceHolder = document.getElementById("usermail");
      var usernamePlaceHolder = document.getElementById("username");
      var usernamePlaceHolder2 = document.getElementById("username2");
+     var rewardPlaceHolder = document.getElementById("points");
+     console.log(currentReward);
      emailPlaceHolder.innerHTML = email;
      usernamePlaceHolder.innerHTML = currentUserUsername; 
-     usernamePlaceHolder2.innerHTML = currentUserUsername; 
+     usernamePlaceHolder2.innerHTML = currentUserUsername;
+     rewardPlaceHolder.innerHTML = currentReward; 
   }
   function updateNewUsername(){
     var username = document.getElementById("newusername");

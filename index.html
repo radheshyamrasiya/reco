@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    
+  <link rel="icon" type="image/png" href="chromeicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,6 +63,9 @@
       const app = initializeApp(firebaseConfig);
       const db = getDatabase(app);
       const auth = getAuth();
+      var currentReward;
+      var currentUserId;
+
       window.onload = pageLoad;
       function pageLoad() {
         var tlmp = document.getElementById("username");
@@ -74,6 +79,9 @@
             get(child(dbRef, tempusernamesearch)).then((snapshot) => {
               if (snapshot.exists()) {
                 tlmp.innerText = snapshot.val().username;
+                currentUserId = snapshot.val().uid;
+                currentReward = snapshot.val().reward;
+                console.log(currentReward);
                 svg1.style.display = "none";
         svg2.style.display = "none";
         body.style.overflow = "scroll";
@@ -87,6 +95,17 @@
         body.style.overflow = "scroll";
           }
         });
+
+        var givepointBtn = document.getElementById('givepointBtn');
+        givepointBtn.addEventListener("click",givepoint);
+
+        function givepoint(){
+        currentReward = currentReward + 1;
+          console.log(currentReward);
+          update(ref(db, 'users/' + currentUserId), {
+         reward: currentReward
+      });
+        }
   
         
       }
@@ -109,10 +128,12 @@
       <div class="twelve column rewardbox red">
         <div class="rewardtitle">Congratulations</div>
         <div class="rewardsubtitle">You have gained 1 reward point(s).</div>
+
     </div>
     </div>
     <!-- Loader 3 -->
-
+    
+    
     <style>
         .svg1{
             width: 150px;
@@ -148,12 +169,10 @@
       
         <div class="title red">reco.</div>
         <div class="subtitle red">sustainability in your hands.</div>
-        <div class="subtitle">
-          welcome back,
-          <div id="username" class="subtitle" style="display: inline-block;text-decoration: underline;color: darkolivegreen;" onclick="profile()">
+        <div class="subtitle" style="margin-top:20px;">
+          welcome back, <div id="username" class="subtitle" style="display: inline-block;text-decoration: underline;color: darkolivegreen;" onclick="profile()">
             guestuser
           </div>
-          .
         </div>
         <img class="swipeuparrow" src="arrow.svg" alt="" />
         <img id="leaf" src="leaves2.jpg" alt="" />
@@ -173,7 +192,7 @@
         </div>
         <img id="mroad" src="road.png" alt="" />
         <div id="yngroup">
-          <div class="yes" onclick="y()">yes</div>
+          <div class="yes" onclick="y()" id="givepointBtn">yes</div>
           <div class="no" onclick="n()">no</div>
         </div>
       </div>
@@ -222,6 +241,6 @@
       />
     </circle>
   </svg>
-
+  <!-- <button id="givepointBtn">GIVEPOINT</button> -->
   </body>
 </html>
