@@ -84,10 +84,14 @@
                 console.log(currentReward);
                 svg1.style.display = "none";
         svg2.style.display = "none";
-        body.style.overflow = "scroll";
+        body.style.overflow = "scroll";   
+        document.getElementById("rewardinfoguest").style = "display: none";        
+        
               }
             });
           } else {
+            
+        document.getElementById("rewardinfouser").style = "display: none";   
             tlmp.innerText = "guestuser";
             tlmp.style.display = "block";
             svg1.style.display = "none";
@@ -128,6 +132,8 @@
       <div class="twelve column rewardbox red">
         <div class="rewardtitle">Congratulations</div>
         <div class="rewardsubtitle">You have gained 1 reward point(s).</div>
+        <div class="rewardsubtitle" id="rewardinfoguest" >Please <a href="/profile.html" id="rewardlink">login/signup</a> to claim it.</div>
+        <div class="rewardsubtitle" id="rewardinfouser" >Check your total points <a href="/profile.html" id="rewardlink">here.</a></div>
 
     </div>
     </div>

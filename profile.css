@@ -76,6 +76,14 @@ body::-webkit-scrollbar {
   margin-top:50px;
   line-height: 65px;
 }
+.title2 {
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -2px;
+  text-align: center;
+  margin-top:20px;
+  line-height: 65px;
+}
 .subtitle {
   font-size: 20px;
   text-align: center;
@@ -108,7 +116,7 @@ body::-webkit-scrollbar {
     height: 500px;
     padding: 20px;
     width: 320px;
-    margin-top: 30px;
+    margin-top: 180px;
   }
   .signupform {
     margin-left: auto;
@@ -120,7 +128,7 @@ body::-webkit-scrollbar {
     height: 500px;
     padding: 20px;
     width: 320px;
-    margin-top: 30px;
+    margin-top: 180px;
   }
   .logoutform {
     margin-left: auto;

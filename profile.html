@@ -76,7 +76,7 @@
       </div>
     <!-- login up form --------------------------->
     <div class="loginform" id="loginform" style="display: none;">
-        <div class="title">Let's Login.</div>
+        <div class="title2">Let's Login.</div>
         <div class="subtitle">Whats you special password? </div>
 
         <div class="input-container ic1">
@@ -101,7 +101,7 @@
 
       <!-- sign up form --------------------------->
       <div class="signupform" id="signupform" style="display: none;">
-        <div class="title">Let's SignUp.</div>
+        <div class="title2">Let's SignUp.</div>
         <div class="subtitle">Hop on the ship sir!</div>
 
         <div class="input-container ic1">
@@ -128,7 +128,7 @@
 
        <!-- post sign up form --------------------------->
        <div class="signupform" id="postsignupform" style="display: none;">
-        <div class="title">A Bit More.</div>
+        <div class="title2">A Bit More.</div>
         <div class="subtitle">What should we call you?</div>
 
         <div class="input-container ic1">
@@ -279,10 +279,11 @@ function pageLoad(){
       if (snapshot.exists()) {
         currentUserUsername = snapshot.val().username;
         currentReward = snapshot.val().reward;
-              console.log(snapshot.val().username);
+        console.log(snapshot.val().username);
           }
       loginform.style.display = "none";
       signupform.style.display = "none";
+      console.log("okbhai yahi error hai");
       logoutform.style.display = "block";
       updateLogout();
         });
@@ -351,8 +352,9 @@ function signup(){
       });
       loginform.style.display = "none";
     signupform.style.display = "none";
-    postsignupform.style.display = "block";
     logoutform.style.display = "none";
+    postsignupform.style.display = "block";
+    
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -364,6 +366,7 @@ function signup(){
         errorholder.innerHTML= "User Already Exists ☝️"
       }
     });
+    
   }
 
   function noerror(){
@@ -383,22 +386,21 @@ function signup(){
 
   function fillSignUpForm(){
     var username = document.getElementById("usernamePostSignUp");
-
+    currentUserUsername = username.value;
     update(ref(db, 'users/' + currentUserId), {
     username: username.value
-      });
-      currentUserUsername = username.value;
-      loginform.style.display = "none";
-    signupform.style.display = "none";
-    postsignupform.style.display = "none";
-    logoutform.style.display = "block";
-    nice();
-    updateLogout();
+      }).then(
+    nice()).then(updateLogout());
+      
   }
   function nice(){
     update(ref(db, 'users/' + currentUserId), {
     reward: 0
       });
+    loginform.style.display = "none";
+    signupform.style.display = "none";
+    postsignupform.style.display = "none";
+    logoutform.style.display = "block";
   }
 
   onAuthStateChanged(auth, (user) => {
