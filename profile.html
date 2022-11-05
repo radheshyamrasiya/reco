@@ -388,19 +388,10 @@ function signup(){
     var username = document.getElementById("usernamePostSignUp");
     currentUserUsername = username.value;
     update(ref(db, 'users/' + currentUserId), {
-    username: username.value
-      }).then(
-    nice()).then(updateLogout());
-      
-  }
-  function nice(){
-    update(ref(db, 'users/' + currentUserId), {
+    username: username.value,
     reward: 0
-      });
-    loginform.style.display = "none";
-    signupform.style.display = "none";
-    postsignupform.style.display = "none";
-    logoutform.style.display = "block";
+      }).then(window.location.reload());
+      
   }
 
   onAuthStateChanged(auth, (user) => {
@@ -425,6 +416,9 @@ function signup(){
      emailPlaceHolder.innerHTML = email;
      usernamePlaceHolder.innerHTML = currentUserUsername; 
      usernamePlaceHolder2.innerHTML = currentUserUsername;
+     if(currentReward<0 || currentReward==null){
+      currentReward = "-"
+     }
      rewardPlaceHolder.innerHTML = currentReward; 
   }
   function updateNewUsername(){
